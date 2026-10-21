@@ -1,6 +1,6 @@
 def call(String CredenetialId ,String imagenamelocal , String imagenamehub){
   withCredentials([usernamePassword('credentialsId':'${CredenetialId}',passwordVariable:"dockerhubpass",usernameVariable:"dockerhubuser")])
   sh "docker login -u '${env.dockerhubuser}' -p '${env.dockerhubpass}'"
-  sh "docker image tag '${env.imagename}' '${env.dockerhubuser}'/'${env.imagenamehub}'"
+  sh "docker image tag '${env.imagelocal}' '${env.dockerhubuser}'/'${env.imagenamehub}'"
   sh "docker push '${env.dockerhubuser}'/'${env.imagenamehub}'"
 }
