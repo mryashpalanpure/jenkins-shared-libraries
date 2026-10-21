@@ -1,0 +1,5 @@
+def call(String imagenamelocal , String imagenamehub){
+  sh "docker login -u '${env.dockerhubuser}' -p '${env.dockerhubpass}'"
+  sh "docker image tag '${env.imagename}' '${env.dockerhubuser}'/'${env.imagenamehub}'"
+  sh "docker push '${env.dockerhubuser}'/'${env.imagenamehub}'"
+}
